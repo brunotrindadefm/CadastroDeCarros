@@ -103,8 +103,8 @@ public class Carro {
 		boolean erro;
 
 		do {
+			Main.leia.nextLine();
 			do {
-				Main.leia.nextLine();
 				do {
 					System.out.print("Digite o Código do Carro (fim para encerrar) ..: ");
 					codCarroChave = Main.leia.nextLine();
@@ -211,10 +211,10 @@ public class Carro {
 			do {
 				System.out.print("Digite o preço do carro em (R$)...............: ");
 				preco = Main.leia.nextFloat();
-				if (preco < 10000) {
-					System.out.println("Preço de carro invalida, digite o preço acima de R$ 10.000 ");
+				if (preco < 10001) {
+					System.out.println("Preço do carro inválido, valor mínimo deverá ser acima de 10000 reais!");
 				}
-			} while (preco < 10000);
+			} while (preco < 10001);
 			Main.leia.nextLine();
 			do {
 				System.out.print("Digite a data de fabricação do carro .........: ");
@@ -353,10 +353,10 @@ public class Carro {
 					do {
 						System.out.print("Digite o preço do carro em (R$)...................: ");
 						preco = Main.leia.nextFloat();
-						if (preco < 10000) {
-							System.out.println("Preço de carro invalida, digite o preço acima de R$ 10.000 ");
+						if (preco < 10001) {
+							System.out.println("Preço do carro inválido, valor mínimo deverá ser acima de 10000 reais ");
 						}
-					} while (preco < 10000);
+					} while (preco < 10001);
 				} else if (opcao == 9) {
 					Main.leia.nextLine();
 					do {
@@ -534,8 +534,13 @@ public class Carro {
 			else if (opcao == 3) {
 				float vlrMin;
 				float vlrMax;
-				System.out.println("Digite o valor mínimo do carro: ");
-				vlrMin = Main.leia.nextFloat();
+				do {
+					System.out.println("Digite o valor mínimo do carro: ");
+					vlrMin = Main.leia.nextFloat();
+					if (vlrMin < 10001) {
+						System.out.println("Valor mínimo deve ser acima de 10000 reais!");
+					}
+				} while (vlrMin < 10001);
 
 				System.out.println("Digite o valor máximo do carro: ");
 				vlrMax = Main.leia.nextFloat();
